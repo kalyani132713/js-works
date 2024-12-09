@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
+    <title>Responsive Products</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: lightpink;
+        }
+
+        .h1 {
+            text-align: center;
+            color: pink;
+            font-size: 24px;
+            background-color: black;
+            padding: 20px 0;
+            margin-bottom: 20px;
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .box {
+            background-color: lightcyan;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .box:hover {
+            transform: scale(1.05);
+        }
+
+        .box img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            border-radius: 8px;
+        }
+
+        .box h2,
+        .box h3,
+        .box p {
+            margin-top: 10px;
+        }
+
+        .box h2 {
+            font-size: 18px;
+            color: #333;
+        }
+
+        .box h3 {
+            font-size: 16px;
+            color: #555;
+        }
+
+        .box p {
+            font-size: 14px;
+            color: #777;
+        }
+
+        .rating {
+            font-size: 16px;
+            color: blueviolet;
+        }
+
+        .price {
+            font-size: 18px;
+            color: darkslateblue;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            .h1 {
+                font-size: 22px;
+            }
+
+            .box {
+                padding: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="h1">
+        <h1>Products</h1>
+    </div>
+    
+    <div class="main" id="main"></div>
+
+    <script>
+        async function getData() {
+            let response = await fetch("https://dummyjson.com/products");
+            let data = await response.json();
+            let products = data.products;
+            
+            const mainContainer = document.getElementById('main');
+            mainContainer.innerHTML = ""; // Clear any existing content before inserting new data
+
+            products.forEach(product => {
+                // Create a new product box
+                const productBox = document.createElement("div");
+                productBox.classList.add("box");
+
+                // Add product image
+                const image = document.createElement("img");
+                image.src = product.images[0] || "https://via.placeholder.com/250x200?text=Image+Not+Available";
+                image.alt = product.title;
+                productBox.appendChild(image);
+
+                // Add product title
+                const title = document.createElement("h2");
+                title.textContent = product.title;
+                productBox.appendChild(title);
+
+                // Add product brand
+                const brand = document.createElement("h3");
+                brand.textContent = `Brand: ${product.brand}`;
+                productBox.appendChild(brand);
+
+                // Add product description (trimmed to 60 characters)
+                const description = document.createElement("p");
+                description.textContent = product.description.length > 60 ? `${product.description.slice(0, 60)}...` : product.description;
+                productBox.appendChild(description);
+
+                // Add product rating (without star)
+                const rating = document.createElement("div");
+                rating.classList.add("rating");
+                rating.innerHTML = `Rating: ${product.rating} / 5`;  // No star icon here
+                productBox.appendChild(rating);
+
+                // Add product price
+                const price = document.createElement("div");
+                price.classList.add("price");
+                price.textContent = `$${product.price}`;
+                productBox.appendChild(price);
+
+                // Append product box to the main container
+                mainContainer.appendChild(productBox);
+            });
+        }
+
+        getData(); // Fetch and display the products
+    </script>
+</body>
+</html>

@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girls Fashion</title>
+    <style>
+          /* Cart Icon styling */
+          .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: purple;
+        }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 1em;
+            position: relative;
+            top: -5px;
+            right: -5px;
+        }
+        .k1 h1 {
+            text-align: center;
+            color: purple;
+        }
+        
+        .kid1 {
+            width: 360px;
+            height: 550px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .kid1:hover {
+            transform: scale(1.05);
+        }
+
+        .kid1 img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .c6 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+
+       
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .kid1 {
+                width: 90%; /* Full width on smaller screens */
+            }
+        }
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>TOYS</h1>
+    </div>
+<!-- Cart Icon with Count -->
+<div class="cart-icon" onclick="window.location.href='cart.html'">
+    🛒 Cart
+    <span class="cart-count" id="cartCount">0</span>
+</div>
+
+    
+    <!-- Filter Inputs for Price -->
+    <div style="text-align:center; margin-bottom: 20px;">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" placeholder="Minimum Price" />
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" placeholder="Maximum Price" />
+        <button onclick="filterByPrice()">Filter by Price</button>
+    </div>
+
+    <div class="c6">
+        <div class="kid1" data-category="Educational Toys" data-price="1500">
+            <a href="#"><img src="https://m.media-amazon.com/images/I/715dpzrZwiL.jpg" alt="Educational Toys"></a>
+            <h1>EDUCATIONAL TOYS</h1>
+            <p>Price: ₹1500</p>
+            <button onclick="addToCart('Educational Toys', 1500, 'https://m.media-amazon.com/images/I/715dpzrZwiL.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Soft Toys" data-price="1200">
+            <a href="#"><img src="https://www.callas.in/media/products/51XQkoHJUeL.jpg" alt="Soft Toys"></a>
+            <h1>SOFT TOYS</h1>
+            <p>Price: ₹1200</p>
+            <button onclick="addToCart('Soft Toys', 1200, 'https://www.callas.in/media/products/51XQkoHJUeL.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Puzzle Toys" data-price="500">
+            <a href="#"><img src="https://funblast.in/cdn/shop/files/614hC7xBgtL._SL1000.jpg?v=1692345929" alt="Puzzle Toys"></a>
+            <h1>PUZZLE TOYS</h1>
+            <p>Price: ₹500</p>
+            <button onclick="addToCart('Puzzle Toys', 500, 'https://funblast.in/cdn/shop/files/614hC7xBgtL._SL1000.jpg?v=1692345929')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Electronic Toys" data-price="800">
+            <a href="#"><img src="https://images.naptol.com/usr/local/csp/staticContent/product_images/horizontal/750x750/Dancing-&-Walking-Bot-Toy-1.jpg" alt="Electronic Toys"></a>
+            <h1>ELECTRONIC TOYS</h1>
+            <p>Price: ₹800</p>
+            <button onclick="addToCart('Electronic Toys', 800, 'https://images.naptol.com/usr/local/csp/staticContent/product_images/horizontal/750x750/Dancing-&-Walking-Bot-Toy-1.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Musical Toys" data-price="900">
+            <a href="#"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ24sJDnDkbVKPbPfb9XQWFHbhDbbQLKFLz0w&s" alt="Musical Toys"></a>
+            <h1>MUSICAL TOYS</h1>
+            <p>Price: ₹900</p>
+            <button onclick="addToCart('Musical Toys', 900, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ24sJDnDkbVKPbPfb9XQWFHbhDbbQLKFLz0w&s')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Drawing Toys" data-price="500">
+            <a href="#"><img src="https://images-cdn.ubuy.co.in/649e89840190e70b8e797485-toddler-toys-for-girls-boys-age-1-2-3-4.jpg" alt="Drawing Toys"></a>
+            <h1>DRAWING TOYS</h1>
+            <p>Price: ₹500</p>
+            <button onclick="addToCart('Drawing Toys', 500, 'https://images-cdn.ubuy.co.in/649e89840190e70b8e797485-toddler-toys-for-girls-boys-age-1-2-3-4.jpg')">Add to Cart</button>
+        </div>
+        
+    </div>
+    <div id="noProductsMessage" style="text-align:center; color: red; font-size: 3.0em; display: none;">
+        No products found.
+    </div>
+    <script>
+         // Initialize cart
+         let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+         // Update cart count
+         function updateCartCount() {
+             const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+             document.getElementById('cartCount').textContent = cartCount;
+         }
+ 
+         // Add to cart function
+         function addToCart(name, price, imageUrl) {
+             const existingItemIndex = cart.findIndex(item => item.name === name);
+ 
+             if (existingItemIndex > -1) {
+                 cart[existingItemIndex].quantity++;
+             } else {
+                 cart.push({ name, price, imageUrl, quantity: 1 });
+             }
+ 
+             // Save to localStorage
+             localStorage.setItem('cart', JSON.stringify(cart));
+ 
+             // Update cart count
+             updateCartCount();
+ 
+             // Redirect to cart page
+             window.location.href = 'cart.html';
+         }
+ 
+         // Update the cart count on page load
+         updateCartCount();
+ 
+         function filterByPrice() {
+     const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+     const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+     const items = document.querySelectorAll('.kid1');
+     let productsVisible = false;
+ 
+     items.forEach(item => {
+         const price = parseInt(item.getAttribute('data-price'));
+         if (price >= minPrice && price <= maxPrice) {
+             item.classList.remove('hidden');
+             productsVisible = true;
+         } else {
+             item.classList.add('hidden');
+         }
+     });
+ 
+     // Check if any product is visible after filtering
+     const noProductsMessage = document.getElementById('noProductsMessage');
+     if (noProductsMessage) {
+         noProductsMessage.style.display = productsVisible ? 'none' : 'block';
+     }
+ }
+ 
+ 
+ 
+
+        
+    </script>
+</body>
+</html>

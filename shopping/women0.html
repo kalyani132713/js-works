@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurtas</title>
+    <style>
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: purple;
+        }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 1em;
+            position: relative;
+            top: -5px;
+            right: -5px;
+        }               
+        .k1 h1 {
+            text-align: center;
+            color: purple;
+        }
+        
+        .women1 {
+            width: 360px;
+            height: 550px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            
+            transition: transform 0.2s;
+        }
+        .women1:hover {
+            transform: scale(1.05);
+        }
+        
+        .women1 img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .a4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+
+        /* Filter Button Styling */
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+
+       
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .women1 {
+                width: 90%; /* Make cards full width on smaller screens */
+            }
+        }
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>KURTAS</h1>
+    </div>
+
+    <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+
+    <!-- Filter Inputs for Price -->
+    <div style="text-align:center; margin-bottom: 20px;">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" placeholder="Minimum Price" />
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" placeholder="Maximum Price" />
+        <button class="filter-button" onclick="filterByPrice()">Filter by Price</button>
+    </div>
+
+    <div class="a4">
+        <div class="women1" data-category="Lehangas" data-price="1000">
+            <a href="#"><img src="https://anayadesignerstudio.com/cdn/shop/files/Unique-Wedding-Lehenga-For-Bride.jpg?v=1714631381" alt="Libas Kurta"></a>
+            <h1>LIBAS</h1>
+            <p>Price: ₹1000</p>
+            <button onclick="addToCart('Educational Lehangas', 700, 'https://assets.ajio.com/medias/sys_master/root/20240716/0tWC/6696adfc1d763220fac88f77/-473Wx593H-466961091-olive-MODEL.jpg')">Add to Cart</button> 
+        </div>
+
+        <div class="women1" data-category="Lehangas" data-price="1200">
+            <a href="#"><img src="https://img.faballey.com/images/Product/ILL01101Z/3.jpg" alt="Aurelia Lehangas"></a>
+            <h1>AURELIA</h1>
+            <p>Price: ₹1200</p>
+            <button onclick="addToCart('Educational Lehangas', 1200, 'https://img.faballey.com/images/Product/ILL01101Z/3.jpg')">Add to Cart</button> 
+        </div>
+
+        <div class="women1" data-category="Lehangas" data-price="600">
+            <a href="#"><img src="https://static3.azafashions.com/tr:w-450/uploads/product_gallery/11_2104_sg-0737881001618995277.jpg" alt="Svrnaa Lehangas"></a>
+            <h1>SVRNAA</h1>
+            <p>Price: ₹600</p>
+            <button onclick="addToCart('Educational Lehangas', 600, 'https://static3.azafashions.com/tr:w-450/uploads/product_gallery/11_2104_sg-0737881001618995277.jpg')">Add to Cart</button> 
+        </div>
+
+        <div class="women1" data-category="Lehangas" data-price="800">
+            <a href="#"><img src="https://dhartibandhani.com/cdn/shop/files/photo1688635297_1.jpg?v=1688639528&width=1445" alt="Aavasa Mix N Match Lehangas"></a>
+            <h1>AAVASA MIX N MATCH</h1>
+            <p>Price: ₹800</p>
+            <button onclick="addToCart('Educational Lehangas', 800, 'https://dhartibandhani.com/cdn/shop/files/photo1688635297_1.jpg?v=1688639528&width=1445')">Add to Cart</button> 
+        </div>
+
+        <div class="women1" data-category="Lehangas" data-price="1100">
+            <a href="#"><img src="https://ashbhav.com/cdn/shop/files/1_c88ad435-7235-4a17-90b7-7cd1ae78b9db.jpg?v=1698551130" alt="Rangita Lehangas"></a>
+            <h1>RANGITA</h1>
+            <p>Price: ₹1100</p>
+            <button onclick="addToCart('Educational Lehangas', 1100, 'https://ashbhav.com/cdn/shop/files/1_c88ad435-7235-4a17-90b7-7cd1ae78b9db.jpg?v=1698551130')">Add to Cart</button> 
+        </div>
+        <div class="women1" data-category="Lehangas" data-price="3000">
+            <a href="#"><img src="https://www.shauryasanadhya.com/cdn/shop/products/DSC4423_1400x.jpg?v=1579426411" alt="Rangita Lehangas"></a>
+            <h1>RANGITA</h1>
+            <p>Price: ₹3000</p>
+            <button onclick="addToCart('Educational Lehangas', 3000, 'https://www.shauryasanadhya.com/cdn/shop/products/DSC4423_1400x.jpg?v=1579426411')">Add to Cart</button> 
+        </div>
+    </div>
+
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+        
+        // Add to cart function
+           function addToCart(name, price, imageUrl) {
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+        
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({ name, price, imageUrl, quantity: 1 });
+            }
+        
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+        
+            // Update cart count
+            updateCartCount();
+        
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+        
+           // Update the cart count on page load
+            updateCartCount();
+        
+
+        function filterByPrice() {
+            const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+            const items = document.querySelectorAll('.women1');
+
+            items.forEach(item => {
+                const price = parseInt(item.getAttribute('data-price'));
+                if (price >= minPrice && price <= maxPrice) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Fashion</title>
+    <style>
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: purple;
+        }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 1em;
+            position: relative;
+            top: -5px;
+            right: -5px;
+        }           
+        /* Flexbox Layout for Display */
+        .a4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-top: 30px;
+        }
+
+        /* Styling for each product block */
+        .women {
+            width: 360px;
+            height: 550px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-sizing: border-box;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .women:hover {
+            transform: scale(1.05);
+        }
+
+        
+        .women img {
+            max-width: 100%;
+            height: auto; /* Keep aspect ratio */
+            border-radius: 5px;
+
+        }
+        
+
+        /* Header Styling */
+        h1 {
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        p {
+            font-size: 1.2em;
+            color: #333;
+        }
+
+        .k1 {
+            color: purple;
+        }
+
+        /* Product Title Styling */
+        h2 {
+            font-size: 1.5em;
+            color: #333;
+        }
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>MAKEUP</h1>
+    </div>
+    <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+    <div style="text-align:center; margin-bottom: 20px;">
+      <label for="minPrice">Min Price:</label>
+      <input type="number" id="minPrice" placeholder="Minimum Price" />
+      <label for="maxPrice">Max Price:</label>
+      <input type="number" id="maxPrice" placeholder="Maximum Price" />
+      <button class="filter-button" onclick="filterByPrice()">Filter by Price</button>
+  </div>
+    <div class="a4">
+        <!-- Product 1 -->
+        <div class="women">
+            <a href="#">
+                <img src="https://images.mamaearth.in/catalog/product/1/_/1_white_bg_74.jpg?format=auto&width=400&height=400" alt="Lakeme">
+            </a>
+            <h2>LAKEME</h2>
+            <p>₹2000</p>
+            <button onclick="addToCart('Educational Lehangas', 2000, 'https://images.mamaearth.in/catalog/product/1/_/1_white_bg_74.jpg?format=auto&width=400&height=400')">Add to Cart</button> 
+        </div>
+
+        <!-- Product 2 -->
+        <div class="women">
+            <a href="#">
+                <img src="https://images.javatpoint.com/list/images/list-of-makeup-items11.png" alt="Loreal">
+            </a>
+            <h2>Loreal</h2>
+            <p>₹1500</p>
+            <button onclick="addToCart('Educational Lehangas', 1500, 'https://images.javatpoint.com/list/images/list-of-makeup-items11.png')">Add to Cart</button> 
+        </div>
+
+        <!-- Product 3 -->
+        <div class="women" >
+            <a href="#">
+                <img src="https://5.imimg.com/data5/SELLER/Default/2024/8/440828130/BC/HM/CG/25501738/lotus-herbals-make-up-xpress-glow10-in1-spf-25-daily-beauty-cream-30g-500x500.jpg" alt="Maybellin">
+            </a>
+            <h2>Maybellin</h2>
+            <p>₹1300</p>
+            <button onclick="addToCart('Educational Lehangas', 1300, 'https://5.imimg.com/data5/SELLER/Default/2024/8/440828130/BC/HM/CG/25501738/lotus-herbals-make-up-xpress-glow10-in1-spf-25-daily-beauty-cream-30g-500x500.jpg')">Add to Cart</button> 
+        </div>
+
+        <!-- Product 4 -->
+        <div class="women">
+            <a href="#">
+                <img src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/resize-w:540/1145878/PbZjMnGJjm--1145878_1.jpg" alt="Revelon">
+            </a>
+            <h2>REVELON</h2>
+            <p>₹1650</p>
+            <button onclick="addToCart('Educational Lehangas', 1600, 'https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/resize-w:540/1145878/PbZjMnGJjm--1145878_1.jpg')">Add to Cart</button> 
+        </div>
+        <!-- Product 5 -->
+        <div class="women">
+            <a href="#">
+                <img src="https://img.fruugo.com/product/3/69/132840693_0340_0340.jpg" alt="Nykaa">
+            </a>
+            <h2>NYKAA</h2>
+            <p>₹1600</p>
+            <button onclick="addToCart('Educational Lehangas', 1600, 'https://img.fruugo.com/product/3/69/132840693_0340_0340.jpg')">Add to Cart</button> 
+        </div>
+        <div class="women">
+            <a href="#">
+                <img src="https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/original/renee/COMBO_240424121001-YCT/0/hI154MIj9l-1037858_combo_2_1.jpg" alt="Wow">
+            </a>
+            <h2>WOW</h2>
+            <p>₹1300</p>
+            <button onclick="addToCart('Educational Lehangas', 1300, 'https://cdn.tirabeauty.com/v2/billowing-snowflake-434234/tira-p/wrkr/products/pictures/item/free/original/renee/COMBO_240424121001-YCT/0/hI154MIj9l-1037858_combo_2_1.jpg')">Add to Cart</button> 
+        </div>
+    </div>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+// Update cart count
+function updateCartCount() {
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    document.getElementById('cartCount').textContent = cartCount;
+}
+
+// Add to cart function
+   function addToCart(name, price, imageUrl) {
+    const existingItemIndex = cart.findIndex(item => item.name === name);
+
+    if (existingItemIndex > -1) {
+        cart[existingItemIndex].quantity++;
+    } else {
+        cart.push({ name, price, imageUrl, quantity: 1 });
+    }
+
+    // Save to localStorage
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    // Update cart count
+    updateCartCount();
+
+    // Redirect to cart page
+    window.location.href = 'cart.html';
+}
+
+   // Update the cart count on page load
+    updateCartCount();
+
+
+      function filterByPrice() {
+          const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+          const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+          const items = document.querySelectorAll('.women1');
+
+          items.forEach(item => {
+              const price = parseInt(item.getAttribute('data-price'));
+              if (price >= minPrice && price <= maxPrice) {
+                  item.classList.remove('hidden');
+              } else {
+                  item.classList.add('hidden');
+              }
+          });
+      }
+
+      
+  </script>
+</body>
+</html>
