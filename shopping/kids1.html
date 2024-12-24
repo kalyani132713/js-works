@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Girls Fashion</title>
+    <style>
+                /* Cart Icon styling */
+                .cart-icon {
+                    position: absolute;
+                    top: 20px;
+                    right: 20px;
+                    font-size: 1.8em;
+                    cursor: pointer;
+                    color: purple;
+                }
+        
+                .cart-count {
+                    background-color: red;
+                    color: white;
+                    padding: 3px 8px;
+                    border-radius: 50%;
+                    font-size: 1em;
+                    position: relative;
+                    top: -5px;
+                    right: -5px;
+                }
+        
+        .k1 h1 {
+            text-align: center;
+            color: purple;
+        }
+        
+        .kid1 {
+            width: 360px;
+            height: 550px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        
+        .kid1:hover {
+            transform: scale(1.05);
+        }
+
+        .kid1 img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .c5 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+
+        /* Cart Display */
+       
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .kid1 {
+                width: 90%; /* Full width on smaller screens */
+            }
+        }
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+        body {
+            background-color: lightblue;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>GIRLS FASHION</h1>
+    </div>
+<!-- Cart Icon with Count -->
+<div class="cart-icon" onclick="window.location.href='cart.html'">
+    🛒 Cart
+    <span class="cart-count" id="cartCount">0</span>
+</div>
+
+    
+    <!-- Filter Inputs for Price -->
+    <div style="text-align:center; margin-bottom: 20px;">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" placeholder="Minimum Price" />
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" placeholder="Maximum Price" />
+        <button onclick="filterByPrice()">Filter by Price</button>
+    </div>
+
+    <div class="c5">
+        <div class="kid1" data-category="Frock" data-price="1500">
+            <a href="#"><img src="https://images.meesho.com/images/products/393171287/rui0j_512.webp" alt="Frock"></a>
+            <h1>FROCK</h1>
+            <p>Price: ₹1500</p>
+            <button onclick="addToCart('FROCK', 1500, 'https://images.meesho.com/images/products/393171287/rui0j_512.webp')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Earings" data-price="1200">
+            <a href="#"><img src="https://img3.exportersindia.com/product_images/bc-full/2023/11/11423549/long-statement-kundan-earings-1699001943-7157164.jpg" alt="Earings"></a>
+            <h1>EARINGS</h1>
+            <p>Price: ₹1200</p>
+            <button onclick="addToCart('EARINGS', 1200, 'earings1.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Bangles" data-price="500">
+            <a href="#"><img src="https://fashionous.in/cdn/shop/files/STB019-SilkThreadBangle.jpg?v=1699866827&width=533" alt="Bangles"></a>
+            <h1>BANGLES</h1>
+            <p>Price: ₹500</p>
+            <button onclick="addToCart('BANGLES', 500, 'https://fashionous.in/cdn/shop/files/STB019-SilkThreadBangle.jpg?v=1699866827&width=533')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Clips" data-price="800">
+            <a href="#"><img src="https://img.ltwebstatic.com/images3_spmp/2024/03/08/84/170987704430ef793f353feaed2af106b6c4380213_thumbnail_720x.webp" alt="Clips"></a>
+            <h1>CLIPS</h1>
+            <p>Price: ₹800</p>
+            <button onclick="addToCart('CLIPS', 800, 'https://img.ltwebstatic.com/images3_spmp/2024/03/08/84/170987704430ef793f353feaed2af106b6c4380213_thumbnail_720x.webp')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Sandals" data-price="900">
+            <a href="#"><img src="https://www.shutterstock.com/image-photo/brown-summer-heeled-sandals-fashion-260nw-2367802555.jpg" alt="Sandals"></a>
+            <h1>SANDALS</h1>
+            <p>Price: ₹900</p>
+            <button onclick="addToCart('SANDALS', 900, 'https://www.shutterstock.com/image-photo/brown-summer-heeled-sandals-fashion-260nw-2367802555.jpg')">Add to Cart</button>
+        </div>
+        
+        <div class="kid1" data-category="Hair Bands" data-price="700">
+            <a href="#"><img src="https://m.media-amazon.com/images/I/51MR5ogSXUL._AC_.jpg" alt="Hair bands"></a>
+            <h1>HAIR BANDS</h1>
+            <p>Price: ₹700</p>
+            <button onclick="addToCart('HAIR BANDS', 700, 'https://m.media-amazon.com/images/I/51MR5ogSXUL._AC_.jpg')">Add to Cart</button>
+        </div>
+        
+        <div id="noProductsMessage" style="text-align:center; color: red; font-size: 3.0em; display: none;">
+            No products found.
+        </div>
+    </div>
+
+    <script>
+        // Initialize cart
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+
+        // Add to cart function
+        function addToCart(name, price, imageUrl) {
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({ name, price, imageUrl, quantity: 1 });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update cart count
+            updateCartCount();
+
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+
+        // Update the cart count on page load
+        updateCartCount();
+
+        function filterByPrice() {
+    const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+    const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+    const items = document.querySelectorAll('.kid1');
+    let productsVisible = false;
+
+    items.forEach(item => {
+        const price = parseInt(item.getAttribute('data-price'));
+        if (price >= minPrice && price <= maxPrice) {
+            item.classList.remove('hidden');
+            productsVisible = true;
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+
+    // Check if any product is visible after filtering
+    const noProductsMessage = document.getElementById('noProductsMessage');
+    if (noProductsMessage) {
+        noProductsMessage.style.display = productsVisible ? 'none' : 'block';
+    }
+}
+
+
+
+    </script>
+</body>
+</html>

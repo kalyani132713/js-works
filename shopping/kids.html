@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kids Fashion</title>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+        .k1 h1 {
+            text-align: center;
+            color: purple;
+        }
+        
+        .kid1 {
+            width: 360px;
+            height: 500px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .kid1:hover {
+            transform: scale(1.05);
+        }
+        
+        .kid1 img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .c3 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Filter Button Styling */
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .kid1 {
+                width: 90%; /* Make cards full width on smaller screens */
+            }
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>KIDS FASHION</h1>
+    </div>
+
+    <!-- Filter Buttons -->
+    <div style="text-align:center; margin-bottom: 20px;">
+        <button class="filter-button" onclick="filterItems('all')">All</button>
+        <button class="filter-button" onclick="filterItems('Boys')">Boys</button>
+        <button class="filter-button" onclick="filterItems('Girls')">Girls</button>
+        <button class="filter-button" onclick="filterItems('Toys')">Toys</button>
+    </div>
+
+    <div class="c3">
+        <div class="kid1" data-category="Boys">
+            <a href="kids0.html"><img src="https://resources.indianclothstore.com/resources/productimages/17677902102023-Navy-Blue-Cotton-Kids-Kurta-Pajama-1.jpg" alt=""></a>
+            <h1>BOYS</h1>
+        </div>
+
+        <div class="kid1" data-category="Girls">
+            <a href="kids1.html"><img src="https://www.perfectpanache.com/cdn/shop/products/mp7model_1_530x@2x.jpg?v=1627339002" alt="Girls Clothing"></a>
+            <h1>GIRLS</h1>
+        </div>
+
+        <div class="kid1" data-category="Toys">
+            <a href="kids2.html"><img src="https://images.meesho.com/images/products/243999739/fkese_512.webp" alt="Kids Toys"></a>
+            <h1>TOYS</h1>
+        </div>
+    </div>
+
+    <script>
+        function filterItems(category) {
+            let items = document.querySelectorAll('.kid1');
+            
+            items.forEach(item => {
+                if (category === 'all') {
+                    item.classList.remove('hidden');  // Show all items
+                } else if (item.getAttribute('data-category') === category) {
+                    item.classList.remove('hidden');  // Show matching items
+                } else {
+                    item.classList.add('hidden');  // Hide non-matching items
+                }
+            });
+        }
+    </script>
+</body>
+</html>

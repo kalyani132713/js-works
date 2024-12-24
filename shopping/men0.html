@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Men's Fashion</title>
+    <style>
+        .cart-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.8em;
+            cursor: pointer;
+            color: purple;
+        }
+
+        .cart-count {
+            background-color: red;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 50%;
+            font-size: 1em;
+            position: relative;
+            top: -5px;
+            right: -5px;
+        }
+        body {
+            background-color: lightblue;
+        }
+        .k1 h1 {
+            text-align: center;
+            color: purple;
+        }
+
+        .men1 {
+            width: 360px;
+            height: 550px;
+            margin: 20px;
+            padding: 5px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            display: inline-block;
+            vertical-align: top;
+            text-align: center;
+    
+        }
+        
+
+        .men1 img {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+        }
+
+        .b4 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Hidden class for filtering */
+        .hidden {
+            display: none;
+        }
+
+        
+        /* Responsive styling */
+        @media (max-width: 768px) {
+            .men1 {
+                width: 90%; /* Full width on smaller screens */
+            }
+        }
+        .filter-button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: purple;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: darkviolet;
+        }
+    </style>
+</head>
+<body>
+    <div class="k1">
+        <h1>SHIRTS</h1>
+    </div>
+    <div class="cart-icon" onclick="window.location.href='cart.html'">
+        🛒 Cart
+        <span class="cart-count" id="cartCount">0</span>
+    </div>
+    
+    <!-- Filter Inputs for Price -->
+    <div style="text-align:center; margin-bottom: 20px;">
+        <label for="minPrice">Min Price:</label>
+        <input type="number" id="minPrice" placeholder="Minimum Price" />
+        <label for="maxPrice">Max Price:</label>
+        <input type="number" id="maxPrice" placeholder="Maximum Price" />
+        <button onclick="filterByPrice()">Filter by Price</button>
+    </div>
+
+    <div class="b4">
+        <div class="men1" data-category="Shirts" data-price="1800">
+            <a href="#"><img src="https://images.meesho.com/images/products/338046992/npzck_512.webp" alt="INDIAN GARAGE CO Shirt"></a>
+            <h1>INDIAN GARAGE CO</h1>
+            <p>Price: ₹1800</p>
+            <button onclick="addToCart('Educational Shirts', 1800, 'https://images.meesho.com/images/products/338046992/npzck_512.webp')">Add to Cart</button>
+            
+        </div>
+
+        <div class="men1" data-category="Shirts" data-price="1500">
+            <a href="#"><img src="https://cdn.shopify.com/s/files/1/0420/7073/7058/products/Augusto_1stMarch209.jpg?v=1679160497" alt="US POLO ASSN Shirt"></a>
+            <h1>US POLO ASSN</h1>
+            <p>Price: ₹1500</p>
+            <button onclick="addToCart('Educational Shirts', 1500, 'https://cdn.shopify.com/s/files/1/0420/7073/7058/products/Augusto_1stMarch209.jpg?v=1679160497')">Add to Cart</button>
+        </div>
+
+        <div class="men1" data-category="Shirts" data-price="1200">
+            <a href="#"><img src="https://sojanya.com/cdn/shop/files/SJR-LK-ChknPatta-1165-Dgreen-Py-012-1.jpg?v=1716885959" alt="LOUIS PHILIPPE Shirt"></a>
+            <h1>LOUIS PHILIPPE</h1>
+            <p>Price: ₹1200</p>
+            <button onclick="addToCart('Educational Shirts', 1200, 'https://sojanya.com/cdn/shop/files/SJR-LK-ChknPatta-1165-Dgreen-Py-012-1.jpg?v=1716885959')">Add to Cart</button>
+        </div>
+
+        <div class="men1" data-category="Shirts" data-price="1000">
+            <a href="#"><img src="https://engine.com.pk/cdn/shop/files/Men_Upper_08e21ef7-0ead-40f3-aafd-d6b66a027046.png?v=1729238738" alt="ALLEN SOLLY Shirt"></a>
+            <h1>ALLEN SOLLY</h1>
+            <p>Price: ₹1000</p>
+            <button onclick="addToCart('Educational Shirts', 1000, 'https://engine.com.pk/cdn/shop/files/Men_Upper_08e21ef7-0ead-40f3-aafd-d6b66a027046.png?v=1729238738')">Add to Cart</button>
+        </div>
+
+        <div class="men1" data-category="Shirts" data-price="500">
+            <a href="#"><img src="https://staticm247.kalkifashion.com/media/catalog/product/b/l/black_zardozi_work_indo_western_set_in_velvet-sg251367_1_.jpg" alt="HIGHLANDER Shirt"></a>
+            <h1>HIGHLANDER</h1>
+            <p>Price: ₹500</p>
+            <button onclick="addToCart('Educational Shirts', 500, 'https://staticm247.kalkifashion.com/media/catalog/product/b/l/black_zardozi_work_indo_western_set_in_velvet-sg251367_1_.jpg')">Add to Cart</button>
+        </div>
+        <div class="men1" data-category="Shirts" data-price="700">
+            <a href="#"><img src="https://assets.ajio.com/medias/sys_master/root/20240716/0tWC/6696adfc1d763220fac88f77/-473Wx593H-466961091-olive-MODEL.jpg" alt="HIGHLANDER Shirt"></a>
+            <h1>HIGHLANDER</h1>
+            <p>Price: ₹700</p>
+            <button onclick="addToCart('Educational Shirts', 700, 'https://assets.ajio.com/medias/sys_master/root/20240716/0tWC/6696adfc1d763220fac88f77/-473Wx593H-466961091-olive-MODEL.jpg')">Add to Cart</button> 
+        </div>
+    </div>
+    <div id="noProductsMessage" style="text-align:center; color: red; font-size: 3.0em; display: none;">
+        No products found.
+    </div>
+    <script>
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+            document.getElementById('cartCount').textContent = cartCount;
+        }
+
+        // Add to cart function
+        function addToCart(name, price, imageUrl) {
+            const existingItemIndex = cart.findIndex(item => item.name === name);
+
+            if (existingItemIndex > -1) {
+                cart[existingItemIndex].quantity++;
+            } else {
+                cart.push({ name, price, imageUrl, quantity: 1 });
+            }
+
+            // Save to localStorage
+            localStorage.setItem('cart', JSON.stringify(cart));
+
+            // Update cart count
+            updateCartCount();
+
+            // Redirect to cart page
+            window.location.href = 'cart.html';
+        }
+
+        // Update the cart count on page load
+        updateCartCount();
+
+        function filterByPrice() {
+            const minPrice = parseInt(document.getElementById('minPrice').value) || 0;
+            const maxPrice = parseInt(document.getElementById('maxPrice').value) || Infinity;
+            const items = document.querySelectorAll('.men1');
+
+            items.forEach(item => {
+                const price = parseInt(item.getAttribute('data-price'));
+                if (price >= minPrice && price <= maxPrice) {
+                    item.classList.remove('hidden');
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        }
+
+        
+    </script>
+</body>
+</html>
